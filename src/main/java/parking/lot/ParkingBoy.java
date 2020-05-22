@@ -1,38 +1,24 @@
 package parking.lot;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingBoy {
 
     private List<ParkingLot> parkingLots;
+    private Parkable parkable;
+    private Pickupable pickupable;
 
-    public ParkingBoy() {
-        this.parkingLots = new ArrayList<>();
-    }
-
-    public void addParkingLot(ParkingLot parkingLot) {
-        this.parkingLots.add(parkingLot);
+    public ParkingBoy(List<ParkingLot> parkingLots, Parkable parkable, Pickupable pickupable) {
+        this.parkingLots = parkingLots;
+        this.parkable = parkable;
+        this.pickupable = pickupable;
     }
 
     public Integer park(Car car) {
-        ParkingLot parkingLot = this.parkingLots.stream().filter(lot -> lot.isAvailable()).findFirst().orElse(null);
-        if(parkingLot != null) {
-            return parkingLot.park(car);
-        }
-
-        return null;
+        return this.parkable.park(car, this.parkingLots);
     }
 
-    public Car pickup(int carNumber) {
-        ParkingLot parkingLot = this.parkingLots.stream()
-                .filter(lot -> lot.pickup(carNumber) != null)
-                .findFirst().orElse(null);
-
-        if(parkingLot != null) {
-            return parkingLot.pickup(carNumber);
-        }
-
-        return null;
+    public Car pickup(Integer carNumber) {
+       return this.pickupable.pickup(carNumber, this.parkingLots);
     }
 }
