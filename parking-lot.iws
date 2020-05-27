@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8857c874-ae1e-4d55-8091-983f812ab689" name="Default Changelist" comment="kk">
-      <change afterPath="$PROJECT_DIR$/src/main/java/parking/lot/Parkable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parking-lot.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/parking-lot.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parking-lot.iws" beforeDir="false" afterPath="$PROJECT_DIR$/parking-lot.iws" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/parking/lot/ParkingBoy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parking/lot/ParkingBoy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parking/lot/SmartParkingBoy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/parking/lot/SuperParkingBoy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/parking/lot/ParkingBoyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/parking/lot/ParkingBoyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/parking/lot/SmartParkingBoyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/parking/lot/SmartParkingBoyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/parking/lot/SuperParkingBoyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/parking/lot/SuperParkingBoyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/parking/lot/ParkingLot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/parking/lot/ParkingLot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -125,6 +120,9 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -146,7 +144,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.SuperParkingBoyTest.parking_boy_should_park_car_to_most_space_rate_parking_lot">
+  <component name="RunManager" selected="Gradle.ParkingManagerTest.should_park_car_to_boy_parking_lot_when_parking_boy_has_available_parking_lot">
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -165,12 +163,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParkingBoyTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ParkingManagerTest.should_park_car_to_boy_parking_lot_when_parking_boy_has_available_parking_lot" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;parking.lot.ParkingBoyTest&quot;" />
+        <option name="scriptParameters" value="--tests &quot;parking.lot.ParkingManagerTest.should_park_car_to_boy_parking_lot_when_parking_boy_has_available_parking_lot&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -185,12 +183,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ParkingBoyTest.parking_boy_should_pickup_car" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ParkingManagerTest.should_park_car_to_manager_parking_lot_when_parking_boy_has_no_available_parking_lot" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;parking.lot.ParkingBoyTest.parking_boy_should_pickup_car&quot;" />
+        <option name="scriptParameters" value="--tests &quot;parking.lot.ParkingManagerTest.should_park_car_to_manager_parking_lot_when_parking_boy_has_no_available_parking_lot&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -290,11 +288,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ParkingManagerTest.should_park_car_to_boy_parking_lot_when_parking_boy_has_available_parking_lot" />
+        <item itemvalue="Gradle.ParkingManagerTest.should_park_car_to_manager_parking_lot_when_parking_boy_has_no_available_parking_lot" />
         <item itemvalue="Gradle.SuperParkingBoyTest.parking_boy_should_park_car_to_most_space_rate_parking_lot" />
         <item itemvalue="Gradle.SuperParkingBoyTest" />
         <item itemvalue="Gradle.SmartParkingBoyTest.parking_boy_should_park_car_to_most_space_paring_lot" />
-        <item itemvalue="Gradle.ParkingBoyTest" />
-        <item itemvalue="Gradle.ParkingBoyTest.parking_boy_should_pickup_car" />
       </list>
     </recent_temporary>
   </component>
@@ -308,7 +306,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590052665618</updated>
-      <workItem from="1590052664742" duration="10096000" />
+      <workItem from="1590052664742" duration="11524000" />
+      <workItem from="1590127120447" duration="5000" />
+      <workItem from="1590543337451" duration="599000" />
+      <workItem from="1590562205501" duration="1150000" />
     </task>
     <servers />
   </component>
@@ -320,7 +321,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

@@ -21,4 +21,23 @@ public class ParkingBoy {
     public Car pickup(Integer carNumber) {
        return this.pickupable.pickup(carNumber, this.parkingLots);
     }
+
+    public boolean isAvailable() {
+        ParkingLot parkingLot = this.parkingLots.stream().filter(lot -> lot.isAvailable()).findFirst().orElse(null);
+
+        if(parkingLot != null) {
+            return parkingLot.isAvailable();
+        }
+
+        return false;
+    }
+
+    public boolean isCarInLot(Integer carNumber) {
+        ParkingLot parkingLot = this.parkingLots.stream().filter(lot -> lot.isCarInLot(carNumber)).findFirst().orElse(null);
+        if(parkingLot != null) {
+            return true;
+        }
+
+        return false;
+    }
 }

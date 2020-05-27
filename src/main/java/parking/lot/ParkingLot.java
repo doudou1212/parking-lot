@@ -55,4 +55,17 @@ public class ParkingLot {
         double rate = (double) this.leftSpace() / (double) this.capability;
         return (int) (rate * 100);
     }
+
+    public boolean isCarInLot(Integer carNumber) {
+        Car optionalCar = this.parkingSpace.stream()
+                .filter(car -> car.getCarNumber() == carNumber)
+                .findFirst()
+                .orElse(null);
+
+        if(optionalCar != null) {
+            return true;
+        }
+
+        return false;
+    }
 }
