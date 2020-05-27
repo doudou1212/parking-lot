@@ -46,4 +46,18 @@ public class ParkingManager {
 
         return null;
     }
+
+    public void print() {
+        System.out.println("===============Parking Boys Info=================");
+        this.parkingboys.stream().map(boy -> {
+            boy.print();
+            return boy;
+        }).findFirst();
+
+        System.out.println("===============Manager Parking Lot Info=================");
+        this.parkingLots.stream().map(lot -> {
+            lot.print();
+            return lot;
+        }).findFirst();
+    }
 }

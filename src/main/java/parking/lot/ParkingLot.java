@@ -68,4 +68,8 @@ public class ParkingLot {
 
         return false;
     }
+
+    public void print() {
+        System.out.println("Parking lot No: " + this.name + ", All space: " + this.capability + ", Left space: " + this.leftSpace() + ", Available rate: " + this.getParkingSpareRate());
+    }
 }

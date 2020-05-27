@@ -7,11 +7,23 @@ public class ParkingBoy {
     private List<ParkingLot> parkingLots;
     private Parkable parkable;
     private Pickupable pickupable;
+    private int name = 0;
 
     public ParkingBoy(List<ParkingLot> parkingLots, Parkable parkable, Pickupable pickupable) {
         this.parkingLots = parkingLots;
         this.parkable = parkable;
         this.pickupable = pickupable;
+    }
+
+    public ParkingBoy(List<ParkingLot> parkingLots, Parkable parkable, Pickupable pickupable, int name) {
+        this.parkingLots = parkingLots;
+        this.parkable = parkable;
+        this.pickupable = pickupable;
+        this.name = name;
+    }
+
+    public int getName() {
+        return name;
     }
 
     public Integer park(Car car) {
@@ -39,5 +51,13 @@ public class ParkingBoy {
         }
 
         return false;
+    }
+
+    public void print() {
+        System.out.println("Parking boy No: " + this.name + ", Parking Lot info: ");
+        this.parkingLots.stream().map(parkingLot -> {
+            parkingLot.print();
+            return parkingLot;
+        }).findFirst();
     }
 }
