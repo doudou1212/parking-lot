@@ -17,7 +17,7 @@ public class SmartParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots, new SmartParkableImpl(), new PickupableImpl());
         Car car = new Car(1);
 
-        Assertions.assertEquals(1, parkingBoy.park(car));
+        Assertions.assertEquals(1, parkingBoy.park(car).orElse(null));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class SmartParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots, new SmartParkableImpl(), new PickupableImpl());
         Car car = new Car(1);
 
-        Assertions.assertEquals(parkingLot2.getName(), parkingBoy.park(car));
+        Assertions.assertEquals(parkingLot2.getName(), parkingBoy.park(car).orElse(null));
     }
 
     @Test
@@ -45,6 +45,6 @@ public class SmartParkingBoyTest {
         Car car = new Car(1);
         parkingBoy.park(car);
 
-        Assertions.assertEquals(car, parkingBoy.pickup(car.getCarNumber()));
+        Assertions.assertEquals(car, parkingBoy.pickup(car.getCarNumber()).orElse(null));
     }
 }

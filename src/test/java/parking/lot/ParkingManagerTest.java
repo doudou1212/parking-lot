@@ -44,7 +44,7 @@ public class ParkingManagerTest {
         ParkingManager parkingManager = new ParkingManager(parkingLotsForParkingManager, parkingBoys);
 
         Car car2 = new Car(2);
-        Assertions.assertEquals(1, parkingManager.park(car2));
+        Assertions.assertEquals(1, parkingManager.park(car2).orElse(null));
     }
 
     @Test
@@ -64,7 +64,7 @@ public class ParkingManagerTest {
         ParkingManager parkingManager = new ParkingManager(parkingLotsForParkingManager, parkingBoys);
 
         Car car = new Car(1);
-        Assertions.assertEquals(1, parkingManager.park(car));
+        Assertions.assertEquals(1, parkingManager.park(car).orElse(null));
     }
 
     @Test
@@ -85,7 +85,7 @@ public class ParkingManagerTest {
         Car car = new Car(1);
         parkingManager.park(car);
 
-        Assertions.assertEquals(car, parkingManager.pickup(car.getCarNumber()));
+        Assertions.assertEquals(car, parkingManager.pickup(car.getCarNumber()).orElse(null));
     }
 
     @Test

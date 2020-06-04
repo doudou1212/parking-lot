@@ -28,7 +28,7 @@ public class ParkingLotTest {
     @Test
     void should_park_car_in_parking_lot() {
         Car car = new Car(1);
-        Assertions.assertEquals(this.parkingLot.getName(), this.parkingLot.park(car));
+        Assertions.assertEquals(this.parkingLot.getName(), this.parkingLot.park(car).orElse(null));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class ParkingLotTest {
         Car car = new Car(1);
         this.parkingLot.park(car);
 
-        Assertions.assertEquals(car, this.parkingLot.pickup(car.getCarNumber()));
+        Assertions.assertEquals(car, this.parkingLot.pickup(car.getCarNumber()).orElse(null));
     }
 
     @Test

@@ -17,7 +17,7 @@ public class SuperParkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots, new SuperParkableImpl(), new PickupableImpl());
         Car car = new Car(1);
 
-        Assertions.assertEquals(1, parkingBoy.park(car));
+        Assertions.assertEquals(1, parkingBoy.park(car).orElse(null));
     }
 
     @Test
@@ -33,7 +33,7 @@ public class SuperParkingBoyTest {
         Car car = new Car(1);
         parkingLot1.park(car);
 
-        Assertions.assertEquals(parkingLot2.getName(), parkingBoy.park(car));
+        Assertions.assertEquals(parkingLot2.getName(), parkingBoy.park(car).orElse(null));
     }
 
     @Test
@@ -47,6 +47,6 @@ public class SuperParkingBoyTest {
         Car car = new Car(1);
         parkingBoy.park(car);
 
-        Assertions.assertEquals(car, parkingBoy.pickup(car.getCarNumber()));
+        Assertions.assertEquals(car, parkingBoy.pickup(car.getCarNumber()).orElse(null));
     }
 }

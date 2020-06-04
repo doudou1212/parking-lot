@@ -34,7 +34,7 @@ public class ParkingBoyTest {
 
         Car car = new Car(1);
 
-        Assertions.assertEquals(parkingLot.getName(), parkingBoy.park(car));
+        Assertions.assertEquals(parkingLot.getName(), parkingBoy.park(car).orElse(null));
     }
 
     @Test
@@ -50,7 +50,7 @@ public class ParkingBoyTest {
         Car car = new Car(1);
         parkingLot1.park(car);
 
-        Assertions.assertEquals(parkingLot2.getName(), parkingBoy.park(car));
+        Assertions.assertEquals(parkingLot2.getName(), parkingBoy.park(car).orElse(null));
     }
 
     @Test
@@ -64,7 +64,7 @@ public class ParkingBoyTest {
         Car car = new Car(1);
         parkingBoy.park(car);
 
-        Assertions.assertEquals(car, parkingBoy.pickup(car.getCarNumber()));
+        Assertions.assertEquals(car, parkingBoy.pickup(car.getCarNumber()).orElse(null));
     }
 
     @Test

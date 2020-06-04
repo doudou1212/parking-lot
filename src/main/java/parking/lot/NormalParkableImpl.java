@@ -1,18 +1,14 @@
 package parking.lot;
 
 import java.util.List;
+import java.util.Optional;
 
 public class NormalParkableImpl implements Parkable{
     @Override
-    public Integer park(Car car, List<ParkingLot> parkingLots) {
-        ParkingLot parkingLot = parkingLots.stream()
-                .filter(lot -> lot.isAvailable())
-                .findFirst().orElse(null);
-
-        if(parkingLot != null) {
-            return parkingLot.park(car);
-        }
-
-        return null;
+    public Optional<Integer> park(Car car, List<ParkingLot> parkingLots) {
+        return parkingLots.stream()
+                .filter(ParkingLot::isAvailable)
+                .findFirst()
+                .flatMap(parkingLot -> parkingLot.park(car));
     }
 }

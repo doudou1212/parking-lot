@@ -1,6 +1,7 @@
 package parking.lot;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ParkingBoy {
 
@@ -15,42 +16,28 @@ public class ParkingBoy {
         this.pickupable = pickupable;
     }
 
-    public ParkingBoy(List<ParkingLot> parkingLots, Parkable parkable, Pickupable pickupable, int name) {
-        this.parkingLots = parkingLots;
-        this.parkable = parkable;
-        this.pickupable = pickupable;
-        this.name = name;
-    }
-
-    public int getName() {
-        return name;
-    }
-
-    public Integer park(Car car) {
+    public Optional<Integer> park(Car car) {
         return this.parkable.park(car, this.parkingLots);
     }
 
-    public Car pickup(Integer carNumber) {
+    public Optional<Car> pickup(Integer carNumber) {
        return this.pickupable.pickup(carNumber, this.parkingLots);
     }
 
     public boolean isAvailable() {
-        ParkingLot parkingLot = this.parkingLots.stream().filter(lot -> lot.isAvailable()).findFirst().orElse(null);
-
-        if(parkingLot != null) {
-            return parkingLot.isAvailable();
-        }
-
-        return false;
+        return this.parkingLots.stream()
+                .filter(ParkingLot::isAvailable)
+                .findFirst()
+                .map(ParkingLot::isAvailable)
+                .orElse(false);
     }
 
     public boolean isCarInLot(Integer carNumber) {
-        ParkingLot parkingLot = this.parkingLots.stream().filter(lot -> lot.isCarInLot(carNumber)).findFirst().orElse(null);
-        if(parkingLot != null) {
-            return true;
-        }
-
-        return false;
+        return this.parkingLots.stream()
+                .filter(parkingLot -> parkingLot.isCarInLot(carNumber))
+                .findFirst()
+                .map(parkingLot -> parkingLot.isCarInLot(carNumber))
+                .orElse(false);
     }
 
     public void print() {

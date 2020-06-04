@@ -2,6 +2,7 @@ package parking.lot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ParkingLot {
     private List<Car> parkingSpace;
@@ -23,23 +24,18 @@ public class ParkingLot {
         return name;
     }
 
-    public int getCapability() {
-        return this.capability;
-    }
-
-    public Integer park(Car car) {
+    public Optional<Integer> park(Car car) {
         if(this.parkingSpace.size() >= capability)
-            return null;
+            return Optional.ofNullable(null);
 
         this.parkingSpace.add(car);
-        return this.name;
+        return Optional.of(this.name);
     }
 
-    public Car pickup(int carNumber) {
+    public Optional<Car> pickup(int carNumber) {
         return this.parkingSpace.stream()
-                .filter(car -> car.getCarNumber() == carNumber)
-                .findFirst()
-                .orElse(null);
+                .filter(car -> carNumber == car.getCarNumber())
+                .findFirst();
     }
 
     public boolean isAvailable() {
@@ -48,7 +44,7 @@ public class ParkingLot {
 
     public int leftSpace() {
         int leftSpace = this.capability - this.parkingSpace.size();
-        return leftSpace > 0 ? leftSpace : 0;
+        return Math.max(leftSpace, 0);
     }
 
     public int getParkingSpareRate() {
@@ -57,16 +53,11 @@ public class ParkingLot {
     }
 
     public boolean isCarInLot(Integer carNumber) {
-        Car optionalCar = this.parkingSpace.stream()
-                .filter(car -> car.getCarNumber() == carNumber)
+        return this.parkingSpace.stream()
+                .filter(car -> carNumber == car.getCarNumber())
                 .findFirst()
-                .orElse(null);
-
-        if(optionalCar != null) {
-            return true;
-        }
-
-        return false;
+                .map(car -> true)
+                .orElse(false);
     }
 
     public void print() {

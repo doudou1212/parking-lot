@@ -1,18 +1,14 @@
 package parking.lot;
 
 import java.util.List;
+import java.util.Optional;
 
 public class PickupableImpl implements Pickupable {
     @Override
-    public Car pickup(Integer carNumber, List<ParkingLot> parkingLots) {
-        ParkingLot parkingLot = parkingLots.stream()
-                .filter(lot -> lot.pickup(carNumber) != null)
-                .findFirst().orElse(null);
-
-        if(parkingLot != null) {
-            return parkingLot.pickup(carNumber);
-        }
-
-        return null;
+    public Optional<Car> pickup(Integer carNumber, List<ParkingLot> parkingLots) {
+        return parkingLots.stream()
+                .filter(parkingLot -> parkingLot.isCarInLot(carNumber))
+                .findFirst()
+                .flatMap(parkingLot -> parkingLot.pickup(carNumber));
     }
 }

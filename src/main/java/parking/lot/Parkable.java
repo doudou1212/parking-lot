@@ -1,8 +1,9 @@
 package parking.lot;
 
 import java.util.List;
+import java.util.Optional;
 
 @FunctionalInterface
 public interface Parkable {
-    public Integer park(Car car, List<ParkingLot> parkingLots);
+    public Optional<Integer> park(Car car, List<ParkingLot> parkingLots);
 }
